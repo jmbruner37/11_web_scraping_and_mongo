@@ -24,7 +24,7 @@ def scrape():
     news_title = slide_element.find("div", class_="content_title").get_text()
     news_p = slide_element.find("div", class_="article_teaser_body").get_text()
     
-
+    browser.quit()
 
 
 #executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
@@ -45,11 +45,13 @@ def scrape():
     featured_img_url = image_soup.select_one("img").get("src")
     featured_img_url
 
+    browser.quit()
 
     facts_url = "https://space-facts.com/mars/"
+    browser.visit(facts_url)
     table = pd.read_html(facts_url)[1]
 
-
+    browser.quit()
     #executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
     #browser = Browser("chrome", **executable_path, headless=False)
     
